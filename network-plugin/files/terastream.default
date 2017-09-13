@@ -23,10 +23,6 @@ if [ -x /bin/sysrepoctl ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-provisioning@2017-08-08.yang -p 600
 	fi
 
-	match=$(sysrepoctl -l | grep "wireless\ ")
-	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-wireless@2017-08-08.yang -p 600
-	fi
 fi
 
 exit 0

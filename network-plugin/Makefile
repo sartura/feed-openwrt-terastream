@@ -61,8 +61,6 @@ endif
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-interfaces@2014-05-08.yang $(1)/etc/sysrepo/yang/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-ip@2014-06-16.yang $(1)/etc/sysrepo/yang/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-provisioning@2017-08-08.yang $(1)/etc/sysrepo/yang/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-wireless@2017-08-08.yang $(1)/etc/sysrepo/yang/
-
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/terastream.default $(1)/etc/uci-defaults/99_terasream
 endef
