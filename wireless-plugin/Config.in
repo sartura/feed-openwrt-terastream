@@ -1,0 +1,7 @@
+if PACKAGE_terastream
+
+config PLUGIN
+	bool "Build the package as a sysrepo plugin"
+	default y
+
+endif
