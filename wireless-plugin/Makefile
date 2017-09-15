@@ -19,8 +19,8 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/wireless-plugin
-  SECTION:=terastream
-  CATEGORY:=terastream
+  SECTION:=Terastream
+  CATEGORY:=Terastream
   TITLE:=wireless plugin
   DEPENDS:= +sysrepo +libuci +sysrepoctl
 endef

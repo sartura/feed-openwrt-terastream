@@ -19,8 +19,8 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/network-plugin
-  SECTION:=terastream
-  CATEGORY:=terastream
+  SECTION:=Terastream
+  CATEGORY:=Terastream
   TITLE:=network plugin
   DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libblobmsg-json +libjson-c
 endef

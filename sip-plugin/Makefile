@@ -19,8 +19,8 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 define Package/sip-plugin
-  SECTION:=terastream
-  CATEGORY:=terastream
+  SECTION:=Terastream
+  CATEGORY:=Terastream
   TITLE:=sip plugin
   DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json +voice-client
 endef
