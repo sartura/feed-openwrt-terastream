@@ -1,7 +1,0 @@
-if PACKAGE_sip-plugin
-
-config PLUGIN
-	bool "Build the package as a sysrepo plugin"
-	default y
-
-endif
