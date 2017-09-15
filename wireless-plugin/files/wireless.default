@@ -3,11 +3,6 @@
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
 if [ -x /bin/sysrepoctl ]; then
-	match=$(sysrepoctl -l | grep "iana-if-type\ ")
-	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/iana-if-type@2014-05-08.yang -p 600
-	fi
-
 	match=$(sysrepoctl -l | grep "wireless\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-wireless@2017-08-08.yang -p 600
