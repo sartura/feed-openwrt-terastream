@@ -18,10 +18,6 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/wireless-plugin/config
-  source "$(SOURCE)/Config.in"
-endef
-
 define Package/wireless-plugin
   SECTION:=terastream
   CATEGORY:=terastream
@@ -30,31 +26,17 @@ define Package/wireless-plugin
 endef
 
 define Package/wireless-plugin/description
-	Midland
+	Sysrepo wireless plugin
 endef
 
 CMAKE_OPTIONS:= \
 	-DCMAKE_INSTALL_PREFIX=/usr \
 	-DCMAKE_BUILD_TYPE=Debug \
-	-DPLUGIN:BOLL=FALSE
-
-ifeq ($(CONFIG_PLUGIN),y)
-CMAKE_OPTIONS:= \
 	-DPLUGIN:BOLL=TRUE
-else
-CMAKE_OPTIONS:= \
-	-DPLUGIN:BOLL=FALSE
-endif
 
 define Package/wireless-plugin/install
-
-ifeq ($(CONFIG_PLUGIN),y)
 	$(INSTALL_DIR) $(1)/usr/lib/sysrepo/plugins/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-wireless.so $(1)/usr/lib/sysrepo/plugins/
-else
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/sysrepo-plugin-dt-wireless $(1)/usr/bin/
-endif
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/iana-if-type@2014-05-08.yang $(1)/etc/sysrepo/yang/
