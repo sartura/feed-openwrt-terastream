@@ -17,12 +17,6 @@ if [ -x /bin/sysrepoctl ]; then
 	if [ ! "$match" ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/ietf-ip@2014-06-16.yang -p 600
 	fi
-
-	match=$(sysrepoctl -l | grep "provisioning\ ")
-	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-provisioning@2017-08-08.yang -p 600
-	fi
-
 fi
 
 exit 0
