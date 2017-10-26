@@ -16,6 +16,7 @@ if [ -x /bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "ietf-ip\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/ietf-ip@2014-06-16.yang -p 600
+		sysrepoctl -m ietf-ip -e ipv4-non-contiguous-netmasks
 	fi
 fi
 

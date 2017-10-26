@@ -6,7 +6,7 @@ PKG_VERSION:=0.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/network-plugin.git
-PKG_SOURCE_VERSION:=365ac3f9c259a3d669d32034b522faddc27bbb42
+PKG_SOURCE_VERSION:=5c423a001bd58453dddb651d2793337c961624ee
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -39,7 +39,7 @@ CMAKE_OPTIONS:= \
 
 define Package/network-plugin/install
 	$(INSTALL_DIR) $(1)/usr/lib/sysrepo/plugins/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-terastream.so $(1)/usr/lib/sysrepo/plugins/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-network.so $(1)/usr/lib/sysrepo/plugins/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/iana-if-type@2014-05-08.yang $(1)/etc/sysrepo/yang/
