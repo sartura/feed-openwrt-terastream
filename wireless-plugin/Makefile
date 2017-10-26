@@ -6,7 +6,7 @@ PKG_VERSION:=0.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/wireless-plugin.git
-PKG_SOURCE_VERSION:=63041b35fd6b97e785a25c3bd73338f15171f6a2
+PKG_SOURCE_VERSION:=5f308a161a06f5d61b81e3d6ea0a60a04d9948c3
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -24,7 +24,7 @@ define Package/wireless-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=wireless plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl
+  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json
 endef
 
 define Package/wireless-plugin/description
