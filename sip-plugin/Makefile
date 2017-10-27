@@ -6,7 +6,7 @@ PKG_VERSION:=0.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/sip-plugin.git
-PKG_SOURCE_VERSION:=2fa1bc2c3275de14ddf73d37296ba205cdff2fe3
+PKG_SOURCE_VERSION:=bb277bdb3a44912af3c32bcd0d43a834d10cf82e
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -41,7 +41,7 @@ define Package/sip-plugin/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-sip.so $(1)/usr/lib/sysrepo/plugins/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/sip@2017-08-09.yang $(1)/etc/sysrepo/yang/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-sip@2017-08-09.yang $(1)/etc/sysrepo/yang/
 
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/sip.default $(1)/etc/uci-defaults/99_sip
