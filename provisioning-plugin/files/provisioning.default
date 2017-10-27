@@ -3,9 +3,9 @@
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
 if [ -x /bin/sysrepoctl ]; then
-	match=$(sysrepoctl -l | grep "provisioning\ ")
+	match=$(sysrepoctl -l | grep "terastream-provisioning\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/provisioning@2017-09-20.yang -p 600
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-provisioning@2017-08-08.yang
 	fi
 fi
 
