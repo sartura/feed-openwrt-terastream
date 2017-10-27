@@ -18,6 +18,11 @@ if [ -x /bin/sysrepoctl ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/ietf-ip@2014-06-16.yang -p 600
 		sysrepoctl -m ietf-ip -e ipv4-non-contiguous-netmasks
 	fi
+
+	match=$(sysrepoctl -l | grep "terastream-interfaces-opto\ ")
+	if [ ! "$match" ]; then
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-interfaces-opto@2017-09-27.yang
+	fi
 fi
 
 exit 0
