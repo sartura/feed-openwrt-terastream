@@ -19,9 +19,9 @@ if [ -x /bin/sysrepoctl ]; then
 		sysrepoctl -m ietf-ip -e ipv4-non-contiguous-netmasks
 	fi
 
-	match=$(sysrepoctl -l | grep "terastream-interfaces-opto\ ")
+	match=$(sysrepoctl -l | grep "terastream-interfaces-proto\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-interfaces-opto@2017-09-27.yang
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-interfaces-proto@2017-09-27.yang
 	fi
 fi
 
