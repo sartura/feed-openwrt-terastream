@@ -6,7 +6,7 @@ PKG_VERSION:=0.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/firmware-plugin.git
-PKG_SOURCE_VERSION:=4403c34bdcf859aed9f269f7433a42b73c92a8a2
+PKG_SOURCE_VERSION:=9e2e431fd41a886f344f0823b087ca569cb6c965
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -24,7 +24,7 @@ define Package/firmware-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=firmware plugin
-  DEPENDS:= +sysrepo +sysrepoctl +libopenssl +libcurl +libubox +libubus +libblobmsg-json
+  DEPENDS:= +sysrepo +sysrepoctl +libopenssl +libcurl +libubox +libubus +libblobmsg-json +json-c
 endef
 
 define Package/firmware-plugin/description
