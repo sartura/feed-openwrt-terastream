@@ -6,7 +6,7 @@ PKG_VERSION:=0.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/network-plugin.git
-PKG_SOURCE_VERSION:=c71da083e97c876e36a07570529893c63bc6e47c
+PKG_SOURCE_VERSION:=b5e6a91284481d7e33c0d83046b7c38309ae9e5a
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -45,7 +45,7 @@ define Package/network-plugin/install
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/iana-if-type@2014-05-08.yang $(1)/etc/sysrepo/yang/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-interfaces@2014-05-08.yang $(1)/etc/sysrepo/yang/
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-ip@2014-06-16.yang $(1)/etc/sysrepo/yang/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-interfaces-proto@2017-09-27.yang $(1)/etc/sysrepo/yang/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-interfaces-opto@2017-09-27.yang $(1)/etc/sysrepo/yang/
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/terastream.default $(1)/etc/uci-defaults/99_network
 endef
