@@ -3,30 +3,32 @@
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
 if [ -x /bin/sysrepoctl ]; then
-	match=$(sysrepoctl -l | grep "terastream-system-hack\ ")
+	match=$(sysrepoctl -l | grep "terastream-software-hack ")
 	if [ ! "$match" ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-software-hack@2017-11-01.yang
 		sysrepoctl -e software-credentials-password -m terastream-software-hack
 
-		# sysrepo startup datastore
-		LINE_1="/etc/sysrepo/sysupgrade/ietf-system.startup"
-		if grep /etc/sysupgrade.conf -e "$LINE_1" ; then
-			echo "$LINE_1 already in file /etc/sysupgrade.conf"
-		else
-			echo "$LINE_1" >> /etc/sysupgrade.conf
-		fi
-		# checksum of the new firmware image
-		LINE_2="/etc/sysrepo/sysupgrade/cksum"
-		if grep /etc/sysupgrade.conf -e "$LINE_2" ; then
-			echo "$LINE_2 already in file /etc/sysupgrade.conf"
-		else
-			echo "$LINE_2" >> /etc/sysupgrade.conf
-		fi
+		export save_file="/etc/sysrepo/sysupgrade/ietf-system.startup
+		                  /etc/sysrepo/sysupgrade/ietf-keystore.startup
+		                  /etc/keystored/keys/
+		                  /etc/sysrepo/sysupgrade/cksum"
+		for file in $save_file
+		do
+			if grep /etc/sysupgrade.conf -e "$file" ; then
+				echo "$file already in file /etc/sysupgrade.conf"
+			else
+				echo "$file" >> /etc/sysupgrade.conf
+			fi
+		done
 
 		if [ -x /bin/sysrepocfg ]; then
 			if [ -f "/etc/sysrepo/sysupgrade/ietf-system.startup" ]; then
 				sysrepocfg -d startup -m /etc/sysrepo/sysupgrade/ietf-system.startup ietf-system
 				rm /etc/sysrepo/sysupgrade/ietf-system.startup
+			fi
+			if [ -f "/etc/sysrepo/sysupgrade/ietf-keystore.startup" ]; then
+				sysrepocfg -d startup -m /etc/sysrepo/sysupgrade/ietf-keystore.startup ietf-keystore
+				rm /etc/sysrepo/sysupgrade/ietf-keystore.startup
 			fi
 		fi
 	fi
