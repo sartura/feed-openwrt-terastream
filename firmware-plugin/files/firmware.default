@@ -3,10 +3,10 @@
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
 if [ -x /bin/sysrepoctl ]; then
-	match=$(sysrepoctl -l | grep "terastream-software-hack ")
+	match=$(sysrepoctl -l | grep "terastream-software ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-software-hack@2017-11-01.yang
-		sysrepoctl -e software-credentials-password -m terastream-software-hack
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-software@2017-11-01.yang
+		sysrepoctl -e software-credentials-password -m terastream-software
 
 		export save_file="/etc/sysrepo/sysupgrade/ietf-system.startup
 		                  /etc/sysrepo/sysupgrade/ietf-keystore.startup
