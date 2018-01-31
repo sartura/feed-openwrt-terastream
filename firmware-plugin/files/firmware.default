@@ -23,6 +23,12 @@ if [ -x /bin/sysrepoctl ]; then
 
 		if [ -x /bin/sysrepocfg ]; then
 			if [ -f "/etc/sysrepo/sysupgrade/ietf-system.startup" ]; then
+				# checked if the config file is based on the old YANG model terastream-software-hack
+				match=$(grep "terastream-software-hack" /etc/sysrepo/sysupgrade/ietf-system.startup)
+				if [ "$match" ]; then
+					sed -i '/<name>/d' /etc/sysrepo/sysupgrade/ietf-system.startup
+					sed -i -e 's/terastream-software-hack/terastream-software/g' /etc/sysrepo/sysupgrade/ietf-system.startup
+				fi
 				sysrepocfg -d startup -m /etc/sysrepo/sysupgrade/ietf-system.startup ietf-system
 				rm /etc/sysrepo/sysupgrade/ietf-system.startup
 			fi
