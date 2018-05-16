@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Warning, problems can occur if the device restarts in the middle of this uci-default script
+
+if [ -x /bin/sysrepoctl ]; then
+	match=$(sysrepoctl -l | grep "terastream-dhcp\ ")
+	if [ ! "$match" ]; then
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-dhcp@2017-12-07.yang -p 600
+	fi
+fi
+
+exit 0
