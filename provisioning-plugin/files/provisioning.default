@@ -5,7 +5,7 @@
 if [ -x /bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-provisioning\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-provisioning@2018-04-26.yang
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-provisioning@2018-05-14.yang
 	fi
 fi
 

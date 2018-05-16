@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=provisioning-plugin
 PKG_RELEASE:=2017-07-31
-PKG_VERSION:=0.1.1
+PKG_VERSION:=0.1.2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/provisioning-plugin.git
-PKG_SOURCE_VERSION:=6b414d018486e8ffb5496ba98e6df72306a370d4
+PKG_SOURCE_VERSION:=0db6694884350feea6fb1ff97a0de011d03e9813
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -25,7 +25,7 @@ define Package/provisioning-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=provisioning plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libblobmsg-json +libjson-c
+  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json +sr-uci
 endef
 
 define Package/provisioning-plugin/description
@@ -42,7 +42,7 @@ define Package/provisioning-plugin/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-provisioning.so $(1)/usr/lib/sysrepo/plugins/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-provisioning@2018-04-26.yang $(1)/etc/sysrepo/yang/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-provisioning@2018-05-14.yang $(1)/etc/sysrepo/yang/
 
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/provisioning.default $(1)/etc/uci-defaults/99_provisioning
