@@ -10,7 +10,8 @@ if [ -x /bin/sysrepoctl ]; then
 
 		export save_file="/etc/sysrepo/sysupgrade/ietf-system.startup
 		                  /etc/sysrepo/sysupgrade/ietf-keystore.startup
-		                  /etc/keystored/keys/
+		                  /etc/keystored/keys/ssh_host_rsa_key.pem
+		                  /etc/keystored/keys/ssh_host_rsa_key.pub.pem
 		                  /etc/sysrepo/sysupgrade/cksum"
 		for file in $save_file
 		do
