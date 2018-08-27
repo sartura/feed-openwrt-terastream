@@ -1,0 +1,13 @@
+Index: mB4-1.0/mB4.c
+===================================================================
+--- mB4-1.0.orig/mB4.c
++++ mB4-1.0/mB4.c
+@@ -61,7 +61,7 @@
+ 
+ 
+ /* struct udphdr */
+-#include <netinet/udp.h>
++#include <linux/udp.h>
+ /* struct igmp */
+ #include <netinet/igmp.h>
+ 
