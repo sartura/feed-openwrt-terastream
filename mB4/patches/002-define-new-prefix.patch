@@ -1,0 +1,16 @@
+Index: mB4-1.0/mB4.c
+===================================================================
+--- mB4-1.0.orig/mB4.c
++++ mB4-1.0/mB4.c
+@@ -86,8 +86,9 @@
+ #define MLD_REPORT 0x83 //131
+ #define MLD_DONE 0x84 //132
+ 
+-#define V6_PREFIX "ff88:abc::"
+-#define SRC_PREFIX "3000:ffff:ffff:400::"
++#define SRC_PREFIX "2003:1b0b:fffd:ffff::"
++#define V6_PREFIX "ff38:0:0:0:0:e90a::"
++
+ #define MLD_QUERY_ADDR "ff02::1"
+ #define MLD_LEAVE_ADDR "ff02::2"
+ 
