@@ -29,6 +29,11 @@ define Package/mB4/description
 	multicast network for further processing.
 endef
 
+define Build/Prepare
+	$(Build/Prepare/Default)
+	$(CP) ./files/mB4.c $(PKG_BUILD_DIR)/
+endef
+
 define Package/mB4/install
 	$(INSTALL_DIR) $(1)/usr/sbin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mB4 $(1)/usr/sbin/
