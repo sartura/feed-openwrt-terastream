@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=firmware-plugin
 PKG_RELEASE:=2017-10-20
-PKG_VERSION:=0.1.9
+PKG_VERSION:=0.1.10
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/firmware-plugin.git
-PKG_SOURCE_VERSION:=7246a6fe15346556b8cc00be05fb1c0eae67de8f
+PKG_SOURCE_VERSION:=aae8d14976b51f520e769f0c3cfabc2de65d4db0
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -24,7 +24,7 @@ define Package/firmware-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=firmware plugin
-  DEPENDS:= +sysrepo +sysrepoctl +libopenssl +libcurl +libubox +libubus +libblobmsg-json +json-c
+  DEPENDS:= +sysrepo +sysrepoctl +libopenssl +libcurl +libubox +libubus +libblobmsg-json +libjson-c
 endef
 
 define Package/firmware-plugin/description
