@@ -30,15 +30,15 @@ if [ -x /bin/sysrepoctl ]; then
 					sed -i '/<name>/d' /etc/sysrepo/sysupgrade/ietf-system.startup
 					sed -i -e 's/terastream-software-hack/terastream-software/g' /etc/sysrepo/sysupgrade/ietf-system.startup
 				fi
-				sysrepocfg -d startup -m /etc/sysrepo/sysupgrade/ietf-system.startup ietf-system
-				rm /etc/sysrepo/sysupgrade/ietf-system.startup
+				sysrepocfg -f xml -d startup -m /etc/sysrepo/sysupgrade/ietf-system.startup ietf-system
 			fi
 			if [ -f "/etc/sysrepo/sysupgrade/ietf-keystore.startup" ]; then
-				sysrepocfg -d startup -m /etc/sysrepo/sysupgrade/ietf-keystore.startup ietf-keystore
-				rm /etc/sysrepo/sysupgrade/ietf-keystore.startup
+				sysrepocfg -f xml -d startup -m /etc/sysrepo/sysupgrade/ietf-keystore.startup ietf-keystore
 			fi
 		fi
 	fi
 fi
+rm /etc/sysrepo/sysupgrade/ietf-system.startup
+rm /etc/sysrepo/sysupgrade/ietf-keystore.startup
 
 exit 0
