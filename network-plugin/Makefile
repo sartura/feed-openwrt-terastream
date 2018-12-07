@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=network-plugin
 PKG_RELEASE:=2017-07-31
-PKG_VERSION:=0.1.1
+PKG_VERSION:=0.1.2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/network-plugin.git
-PKG_SOURCE_VERSION:=b30484ab34b9a029c95054b6cb30efa63eccdb88
+PKG_SOURCE_VERSION:=478cb229b65e3227109e0cedae9f36068c9c5f0c
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -25,7 +25,7 @@ define Package/network-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=network plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libblobmsg-json +libjson-c
+  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libblobmsg-json +libjson-c +sr-uci
 endef
 
 define Package/network-plugin/description
