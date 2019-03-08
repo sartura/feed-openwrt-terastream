@@ -6,7 +6,7 @@ PKG_VERSION:=0.1.10
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/wireless-plugin.git
-PKG_SOURCE_VERSION:=3581c63e20590d89a51d7b54cf519d7a555ead15
+PKG_SOURCE_VERSION:=b68f15550ec5b413d0303dedf59d270a62669b64
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -41,7 +41,7 @@ define Package/wireless-plugin/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-wireless.so $(1)/usr/lib/sysrepo/plugins/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-wireless@2017-08-08.yang $(1)/etc/sysrepo/yang/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-wireless@2019-03-05.yang $(1)/etc/sysrepo/yang/
 
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/wireless.default $(1)/etc/uci-defaults/99_wireless

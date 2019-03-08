@@ -5,7 +5,8 @@
 if [ -x /bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-wireless\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-wireless@2017-08-08.yang -p 600
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-wireless@2019-03-05.yang -p 600
+		sysrepoctl -e wifi-life -m terastream-wireless
 	fi
 fi
 
