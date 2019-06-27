@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Warning, problems can occur if the device restarts in the middle of this uci-default script
+
+if [ -x /bin/sysrepoctl ]; then
+	match=$(sysrepoctl -l | grep "terastream-generic-ubus\ ")
+	if [ ! "$match" ]; then
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-generic-ubus@2019-06-12.yang -p 600
+	fi
+fi
+
+exit 0
