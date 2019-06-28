@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-plugin
 PKG_RELEASE:=2019-06-27
-PKG_VERSION:=0.1.0
+PKG_VERSION:=0.1.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/generic-ubus-plugin
@@ -20,14 +20,14 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/wireless-plugin
+define Package/generic-ubus-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=generic ubus plugin
   DEPENDS:= +sysrepo +sysrepoctl +libubus +libubox +libblobmsg-json +generic-ubus-yang-modules
 endef
 
-define Package/wireless-plugin/description
+define Package/generic-ubus-plugin/description
 	Sysrepo generic ubus plugin
 endef
 
@@ -36,7 +36,7 @@ CMAKE_OPTIONS:= \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DPLUGIN:BOLL=TRUE \
 
-define Package/wireless-plugin/install
+define Package/generic-ubus-plugin/install
 	$(INSTALL_DIR) $(1)/usr/lib/sysrepo/plugins/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-generic-ubus.so $(1)/usr/lib/sysrepo/plugins/
 

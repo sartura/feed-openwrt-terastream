@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-yang-modules
 PKG_RELEASE:=2019-06-27
-PKG_VERSION:=0.1.0
+PKG_VERSION:=0.1.1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/generic-ubus-yang-modules
@@ -20,14 +20,14 @@ PKG_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
-define Package/wireless-plugin
+define Package/generic-ubus-yang-modules
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=generic ubus yang modules
   DEPENDS:= +sysrepo +sysrepoctl
 endef
 
-define Package/wireless-plugin/description
+define Package/generic-ubus-yang-modules/description
 	Sysrepo ubus specific YANG modules used by the generic ubus plugin
 endef
 
@@ -36,7 +36,7 @@ CMAKE_OPTIONS:= \
 	-DCMAKE_BUILD_TYPE=Debug \
 	-DPLUGIN:BOLL=TRUE \
 
-define Package/wireless-plugin/install
+define Package/generic-ubus-yang-modules/install
 
 	# TODO: all yangs need to be copyed to the /etc/sysrepo/yang
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
