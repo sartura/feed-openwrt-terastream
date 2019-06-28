@@ -2,11 +2,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-plugin
 PKG_RELEASE:=2019-06-27
-PKG_VERSION:=0.1.1
+PKG_VERSION:=0.1.2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/generic-ubus-plugin
-PKG_SOURCE_VERSION:=904a7b63f29e45cb23aa2c2890ed375a7552c472
+PKG_SOURCE_VERSION:=50321e258f7d6c7d4a1c84d8e34c9de0cb4376b8
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
@@ -41,7 +41,7 @@ define Package/generic-ubus-plugin/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-generic-ubus.so $(1)/usr/lib/sysrepo/plugins/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-generic-ubus@2019-06-12.yang $(1)/etc/sysrepo/yang/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/terastream-generic-ubus@2019-06-28.yang $(1)/etc/sysrepo/yang/
 
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/generic-ubus.default $(1)/etc/uci-defaults/99_generic_ubus

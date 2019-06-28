@@ -5,7 +5,7 @@
 if [ -x /bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-generic-ubus\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-generic-ubus@2019-06-12.yang -p 600
+		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-generic-ubus@2019-06-28.yang -p 600
 	fi
 fi
 
