@@ -1,4 +1,4 @@
-nclude $(TOPDIR)/rules.mk
+include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-yang-modules
 PKG_RELEASE:=2019-06-27
@@ -46,5 +46,5 @@ define Package/generic-ubus-yang-modules/install
         $(INSTALL_BIN) ./files/generic-ubus-yang-modules.default $(1)/etc/uci-defaults/99_generic_ubus_yang_modules
 endef
 
-$(eval $(call Package,generic-ubus-yang-modules))
+$(eval $(call BuildPackage,generic-ubus-yang-modules))
 
