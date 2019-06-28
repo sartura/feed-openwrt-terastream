@@ -31,6 +31,9 @@ define Package/generic-ubus-yang-modules/description
         Sysrepo ubus specific YANG modules used by the generic ubus plugin
 endef
 
+define Build/Compile
+endef
+
 define Package/generic-ubus-yang-modules/install
 
         $(INSTALL_DIR) $(1)/etc/sysrepo/yang
