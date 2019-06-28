@@ -1,4 +1,4 @@
-nclude $(TOPDIR)/rules.mk
+include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-yang-modules
 PKG_RELEASE:=2019-06-27
@@ -27,23 +27,23 @@ define Package/generic-ubus-yang-modules
 endef
 
 define Package/generic-ubus-yang-modules/description
-	Sysrepo ubus specific YANG modules used by the generic ubus plugin
+                Sysrepo ubus specific YANG modules used by the generic ubus plugin
 endef
 
 define Build/Compile
-	true
+                true
 endef
 
 define Package/generic-ubus-yang-modules/install
 
-	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-router-wireless@2019-06-24.yang $(1)/etc/sysrepo/yang/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-router-system@2019-06-24.yang $(1)/etc/sysrepo/yang/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-sip@2019-06-24.yang $(1)/etc/sysrepo/yang/
-    $(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-system@2019-06-24.yang $(1)/etc/sysrepo/yang/
+                $(INSTALL_DIR) $(1)/etc/sysrepo/yang
+                $(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-router-wireless@2019-06-24.yang $(1)/etc/sysrepo/yang/
+                $(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-router-system@2019-06-24.yang $(1)/etc/sysrepo/yang/
+                $(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-sip@2019-06-24.yang $(1)/etc/sysrepo/yang/
+                $(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/generic-ubus-system@2019-06-24.yang $(1)/etc/sysrepo/yang/
 
-	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/generic-ubus-yang-modules.default $(1)/etc/uci-defaults/99_generic_ubus_yang_modules
+                $(INSTALL_DIR) $(1)/etc/uci-defaults
+                $(INSTALL_BIN) ./files/generic-ubus-yang-modules.default $(1)/etc/uci-defaults/99_generic_ubus_yang_modules
 endef
 
 $(eval $(call BuildPackage,generic-ubus-yang-modules))
