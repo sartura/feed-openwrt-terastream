@@ -2,7 +2,7 @@
 
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
-if [ -x /bin/sysrepoctl ]; then
+if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "test-plugin\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl --install --yang=/etc/sysrepo/yang/test-plugin@2018-02-20.yang

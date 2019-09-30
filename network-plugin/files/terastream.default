@@ -2,26 +2,30 @@
 
 # Warning, problems can occur if the device restarts in the middle of this uci-default script
 
-if [ -x /bin/sysrepoctl ]; then
+if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "iana-if-type\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/iana-if-type@2014-05-08.yang -p 600
+		sysrepoctl -i /etc/sysrepo/yang/iana-if-type@2014-05-08.yang
 	fi
 
 	match=$(sysrepoctl -l | grep "ietf-interfaces\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/ietf-interfaces@2014-05-08.yang -p 600
+		sysrepoctl -i /etc/sysrepo/yang/ietf-interfaces@2014-05-08.yang
+		rm /etc/sysrepo/data/ietf-interfaces.startup
+		touch /etc/sysrepo/data/ietf-interfaces.startup
 	fi
 
 	match=$(sysrepoctl -l | grep "ietf-ip\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/ietf-ip@2014-06-16.yang -p 600
-		sysrepoctl -m ietf-ip -e ipv4-non-contiguous-netmasks
+		sysrepoctl -i /etc/sysrepo/yang/ietf-ip@2014-06-16.yang
+		sysrepoctl -c ietf-ip -e ipv4-non-contiguous-netmasks
 	fi
 
 	match=$(sysrepoctl -l | grep "terastream-interfaces-opto\ ")
 	if [ ! "$match" ]; then
-		sysrepoctl --install --yang=/etc/sysrepo/yang/terastream-interfaces-opto@2017-09-27.yang
+		sysrepoctl -i /etc/sysrepo/yang/terastream-interfaces-opto@2017-09-27.yang
+		rm /etc/sysrepo/data/terastream-interfaces-opto.startup
+		touch /etc/sysrepo/data/terastream-interfaces-opto.startup
 	fi
 fi
 
