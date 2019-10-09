@@ -40,12 +40,11 @@ define Package/firmware-plugin/install
 	$(INSTALL_DIR) $(1)/usr/lib/sysrepo/plugins/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/sysrepo-plugin-dt-firmware.so $(1)/usr/lib/sysrepo/plugins/
 
-	
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/iana-crypt-hash@2014-08-06.yang $(1)/etc/sysrepo/yang/
 
-	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-netconf-acm@2018-02-14.yang $(1)/etc/sysrepo/yang/
+#	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
+#	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-netconf-acm@2018-02-14.yang $(1)/etc/sysrepo/yang/
 
 	$(INSTALL_DIR) $(1)/etc/sysrepo/yang
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/yang/ietf-system@2014-08-06.yang $(1)/etc/sysrepo/yang/
