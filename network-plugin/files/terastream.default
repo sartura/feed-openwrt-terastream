@@ -11,8 +11,6 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "ietf-interfaces\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/ietf-interfaces@2014-05-08.yang
-		rm /etc/sysrepo/data/ietf-interfaces.startup
-		touch /etc/sysrepo/data/ietf-interfaces.startup
 	fi
 
 	match=$(sysrepoctl -l | grep "ietf-ip\ ")
@@ -24,8 +22,6 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-interfaces-opto\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/terastream-interfaces-opto@2017-09-27.yang
-		rm /etc/sysrepo/data/terastream-interfaces-opto.startup
-		touch /etc/sysrepo/data/terastream-interfaces-opto.startup
 	fi
 fi
 
