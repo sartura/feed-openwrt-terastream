@@ -1,19 +1,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sr_uci
-PKG_RELEASE:=2018-05-08
-PKG_VERSION:=0.1.2
+PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/sr_uci.git
-PKG_SOURCE_VERSION:=104d8d5b304d7eb297e52cbdf4426781bfe0d9eb
+PKG_SOURCE_VERSION:=44cbcd7b3625a840070e9443100def19651f6f81
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
 PKG_BUILD_ROOT:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 PKG_BUILD_DIR:=$(PKG_BUILD_ROOT)
 
-PKG_MAINTAINER:=Mislav Novakovic <mislav.novakovic@sartura.hr>
+PKG_MAINTAINER:=Luka Paulic <luka.paulic@sartura.hr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -24,7 +24,7 @@ define Package/sr-uci
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=sr_uci library
-  DEPENDS:= +sysrepo +libuci +libubus +libubox +libblobmsg-json
+  DEPENDS:= +libsysrepo-v1.x.x +libuci +libubus +libubox +libblobmsg-json
 endef
 
 define Package/sr-uci/description
