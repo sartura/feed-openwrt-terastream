@@ -6,8 +6,6 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-provisioning\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/terastream-provisioning@2018-05-14.yang
-		rm /etc/sysrepo/data/terastream-provisioning.startup
-		touch /etc/sysrepo/data/terastream-provisioning.startup
 	fi
 fi
 

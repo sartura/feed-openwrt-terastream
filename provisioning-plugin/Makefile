@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=provisioning-plugin
-PKG_RELEASE:=2017-07-31
-PKG_VERSION:=0.1.5
+PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/provisioning-plugin.git
@@ -14,7 +14,7 @@ PKG_BUILD_ROOT:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 PKG_BUILD_DIR:=$(PKG_BUILD_ROOT)
 
 
-PKG_MAINTAINER:=Petar Paradzik <petar.paradzik@sartura.hr>
+PKG_MAINTAINER:=Luka Paulic <luka.paulic@sartura.hr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -25,7 +25,7 @@ define Package/provisioning-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=provisioning plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json +sr-uci
+  DEPENDS:= +libsysrepo-v1.x.x +libuci +sysrepoctl-v1.x.x +libubus +libubox +libblobmsg-json +sr-uci
 endef
 
 define Package/provisioning-plugin/description
