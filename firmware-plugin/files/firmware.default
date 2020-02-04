@@ -41,10 +41,12 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/iana-crypt-hash@2014-08-06.yang
 	fi
-#	match=$(sysrepoctl -l | grep "ietf-netconf-acm ")
-#	if [ ! "$match" ]; then
-#		sysrepoctl -i /etc/sysrepo/yang/ietf-netconfg-acm@2018-02-14.yang
-#	fi
+
+	match=$(sysrepoctl -l | grep "ietf-netconf-acm ")
+	if [ ! "$match" ]; then
+		sysrepoctl -i /etc/sysrepo/yang/ietf-netconf-acm@2018-02-14.yang
+	fi
+
 	match=$(sysrepoctl -l | grep "ietf-system ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/ietf-system@2014-08-06.yang
