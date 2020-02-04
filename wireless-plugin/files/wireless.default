@@ -6,8 +6,6 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-wireless\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/terastream-wireless@2017-08-08.yang
-		rm /etc/sysrepo/data/terastream-wireless.startup
-		touch /etc/sysrepo/data/terastream-wireless.startup
 
 	fi
 fi
