@@ -1,19 +1,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sip-plugin
-PKG_RELEASE:=2017-07-31
-PKG_VERSION:=0.1.5
+PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/sip-plugin.git
-PKG_SOURCE_VERSION:=bf3678bd60b7d52cce592a62d54df0377d536c7c
+PKG_SOURCE_VERSION:=cb2968f22f31738523ea704583316a9e9b0319a6
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
 PKG_BUILD_ROOT:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 PKG_BUILD_DIR:=$(PKG_BUILD_ROOT)
 
-PKG_MAINTAINER:=Mislav Novakovic <mislav.novakovic@sartura.hr>
+PKG_MAINTAINER:=Luka Paulic <luka.paulic@sartura.hr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -24,7 +24,7 @@ define Package/sip-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=sip plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json +voice-client
+  DEPENDS:= +libsysrepo-v1.x.x +libuci +sysrepoctl-v1.x.x +libubus +libubox +libblobmsg-json +voice-client
 endef
 
 define Package/sip-plugin/description
