@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-yang-modules
-PKG_RELEASE:=2019-06-27
-PKG_VERSION:=0.1.1
+PKG_RELEASE:=2
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/generic-ubus-yang-modules
@@ -23,7 +23,7 @@ define Package/generic-ubus-yang-modules
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=generic ubus yang modules
-  DEPENDS:= +sysrepo +sysrepoctl
+  DEPENDS:= +libsysrepo-v1.x.x +sysrepoctl-v1.x.x
 endef
 
 define Package/generic-ubus-yang-modules/description
