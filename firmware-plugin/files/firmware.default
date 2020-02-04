@@ -20,7 +20,7 @@ if [ -x /usr/bin/sysrepoctl ]; then
 			fi
 		done
 
-		if [ -x /bin/sysrepocfg ]; then
+		if [ -x /usr/bin/sysrepocfg ]; then
 			if [ -f "/etc/sysrepo/sysupgrade/ietf-system.startup" ]; then
 				# checked if the config file is based on the old YANG model terastream-software-hack
 				match=$(grep "terastream-software-hack" /etc/sysrepo/sysupgrade/ietf-system.startup)
@@ -28,16 +28,14 @@ if [ -x /usr/bin/sysrepoctl ]; then
 					sed -i '/<name>/d' /etc/sysrepo/sysupgrade/ietf-system.startup
 					sed -i -e 's/terastream-software-hack/terastream-software/g' /etc/sysrepo/sysupgrade/ietf-system.startup
 				fi
-				sysrepocfg -f xml -d startup -m /etc/sysrepo/sysupgrade/ietf-system.startup ietf-system
+				sysrepocfg --edit=/etc/sysrepo/sysupgrade/ietf-system.startup -f xml -d startup -m ietf-system
+				sysrepocfg -C startup -m ietf-system
 			fi
 			if [ -f "/etc/sysrepo/sysupgrade/ietf-keystore.startup" ]; then
-				sysrepocfg -f xml -d startup -m /etc/sysrepo/sysupgrade/ietf-keystore.startup ietf-keystore
+				sysrepocfg --edit=/etc/sysrepo/sysupgrade/ietf-keystore.startup -f xml -d startup -m ietf-keystore
+				sysrepocfg -C startup -m ietf-keystore
 			fi
 		fi
-		rm /etc/sysrepo/data/ietf-system.startup
-		touch /etc/sysrepo/data/ietf-system.startup
-		rm /etc/sysrepo/data/terastream-software.startup
-		touch /etc/sysrepo/data/terastream-software.startup
 	fi
 	match=$(sysrepoctl -l | grep "iana-crypt-hash ")
 	if [ ! "$match" ]; then

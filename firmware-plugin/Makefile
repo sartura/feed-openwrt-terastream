@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=firmware-plugin
-PKG_RELEASE:=2017-10-20
-PKG_VERSION:=0.1.17
+PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/firmware-plugin.git
@@ -13,7 +13,7 @@ PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 PKG_BUILD_ROOT:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 PKG_BUILD_DIR:=$(PKG_BUILD_ROOT)
 
-PKG_MAINTAINER:=Mislav Novakovic <mislav.novakovic@sartura.hr>
+PKG_MAINTAINER:=Luka Paulic <luka.paulic@sartura.hr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -24,7 +24,7 @@ define Package/firmware-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=firmware plugin
-  DEPENDS:= +sysrepo +sysrepoctl +libopenssl +libcurl +libubox +libubus +libblobmsg-json +libjson-c
+  DEPENDS:= +libsysrepo-v1.x.x +sysrepoctl-v1.x.x +sysrepocfg-v1.x.x +libopenssl +libcurl +libubox +libubus +libblobmsg-json +libjson-c
 endef
 
 define Package/firmware-plugin/description
