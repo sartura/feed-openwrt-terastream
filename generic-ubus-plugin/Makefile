@@ -1,8 +1,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=generic-ubus-plugin
-PKG_RELEASE:=2019-06-27
-PKG_VERSION:=0.1.2
+PKG_RELEASE:=2
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/generic-ubus-plugin
@@ -24,7 +24,7 @@ define Package/generic-ubus-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=generic ubus plugin
-  DEPENDS:= +sysrepo +sysrepoctl +libubus +libubox +libblobmsg-json +generic-ubus-yang-modules
+  DEPENDS:= +libsysrepo-v1.x.x +sysrepoctl-v1.x.x +libubus +libubox +libblobmsg-json +generic-ubus-yang-modules
 endef
 
 define Package/generic-ubus-plugin/description

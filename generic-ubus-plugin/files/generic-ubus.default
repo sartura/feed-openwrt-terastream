@@ -6,8 +6,6 @@ if [ -x /usr/bin/sysrepoctl ]; then
 	match=$(sysrepoctl -l | grep "terastream-generic-ubus\ ")
 	if [ ! "$match" ]; then
 		sysrepoctl -i /etc/sysrepo/yang/terastream-generic-ubus@2019-06-28.yang
-		rm /etc/sysrepo/data/terastream-generic-ubus.startup
-		touch /etc/sysrepo/data/terastream-generic-ubus.startup
 	fi
 fi
 
