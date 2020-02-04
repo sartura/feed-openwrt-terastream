@@ -1,19 +1,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dhcp-plugin
-PKG_RELEASE:=2018-05-08
-PKG_VERSION:=0.1.5
+PKG_RELEASE:=3
+PKG_VERSION:=1.0.0
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/sartura/dhcp.git
-PKG_SOURCE_VERSION:=1f32cba3dd9373ff138d6367ded106279538c45e
+PKG_SOURCE_VERSION:=eb7d532f5efc7e268c3914cec2b72b6d4e946f5a
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.xz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION)
 
 PKG_BUILD_ROOT:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 PKG_BUILD_DIR:=$(PKG_BUILD_ROOT)
 
-PKG_MAINTAINER:=Mislav Novakovic <mislav.novakovic@sartura.hr>
+PKG_MAINTAINER:=Luka Paulic <luka.paulic@sartura.hr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -24,7 +24,7 @@ define Package/dhcp-plugin
   SECTION:=Terastream
   CATEGORY:=Terastream
   TITLE:=dhcp plugin
-  DEPENDS:= +sysrepo +libuci +sysrepoctl +libubus +libubox +libblobmsg-json +sr-uci
+  DEPENDS:= +libsysrepo-v1.x.x +libuci +sysrepoctl-v1.x.x +libubus +libubox +libblobmsg-json +sr-uci
 endef
 
 define Package/dhcp-plugin/description
