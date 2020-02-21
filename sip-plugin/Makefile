@@ -34,7 +34,7 @@ endef
 CMAKE_OPTIONS:= \
 	-DCMAKE_INSTALL_PREFIX=/usr \
 	-DCMAKE_BUILD_TYPE=Debug \
-	-DPLUGIN:BOLL=TRUE
+	-DPLUGIN:BOOL=TRUE
 
 define Package/sip-plugin/install
 	$(INSTALL_DIR) $(1)/usr/lib/sysrepo/plugins/
